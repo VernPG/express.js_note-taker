@@ -1,0 +1,7 @@
+[
+    {
+        "title":"Test Title",
+        "text":"Test text"
+    }
+]
+//this is just a json file with one object per note
