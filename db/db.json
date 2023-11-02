@@ -1,7 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
-//this is just a json file with one object per note
+[{"title":"Test Title","text":"Test text"},{"title":"Again","text":"Test"},{"title":"New Note Test","text":"Test"}]
