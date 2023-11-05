@@ -10,7 +10,10 @@ Goal of this project is to be able to create a Note Taker application with Expre
   * [Images and Repo](#images)
 
 ## Installation
-This application was viewed using the local host terminal.
+This application was viewed using the local host terminal. To access the note taker:
+  * Go to https://github.com/VernPG/express.js_note-taker.git
+  * Click Code and download zip or clone to user terminal. 
+
 
 ### Usage
  The intended use of this project is to generate a note taker with Express. 
@@ -37,6 +40,6 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
  **[Repo can be found HERE](https://github.com/VernPG/express.js_note-taker.git)
 
- **[Note Taker can be found HERE](https://vernpg.github.io/express.js_note-taker/)
+
  
 
