@@ -1,59 +1,59 @@
 const router = require("express").Router();
+// const path = require("path");
 const fs = require('fs');
 const util = require("util");
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
-const db = require("../db/db.json")
-// const { readFromFile, readAndAppend } = require('../helpers/uuid');
-// const { v4: uuidv4 } = require('uuid');
-// const noteId = uuidv4();
-
-router.get("/", (req, res) => {
-
-  fs.readFile("name-of-file.txt", "utf-8", (err, data) => {
-    res.json(data)
-  })
-
-  res.json()
-})
+const db = require("../db/db.json");
+var uniqid = require('uniqid'); 
 
 
 
 router.get('/notes', (req, res) => {
-    // fs.readFile('../db/db.json', "utf-8", (err, data) => { res.json(data) })
-    readFileAsync('./db/db.json', "utf8").then(data => res.json(data)).catch(err => res.status(400).json(err))
+  fs.readFile('db/db.json', "utf-8", (err, data) => { return err ? 
+    console.log(err) : res.json(JSON.parse(data))})
 });
+router.post('/notes', (req, res) => {
+  const { title, text } = req.body;
+    const newNote = { title, text };
+    db.push(newNote)
+    writeFileAsync('./db/db.json', JSON.stringify(db))
+    .then(data => res.json(data))
+    .catch(err => console.log(err))
+});
+
+// router.delete('/notes/:id', (req, res) => {
+//   fs.readFile('db/db.json', 'utf8', (err, data) => {
+//     if (err) throw err;
+//     let notes = JSON.parse(data);
+//     const oldNotes = notes.filter(note => note.id !== parseInt(req.params.id));
   
-  // POST Route for a new UX/UI tip
-  router.post('/notes', (req, res) => {
-    const { title, text } = req.body;
-      const newNote = { title, text };
-      db.push(newNote)
-      writeFileAsync('./db/db.json', JSON.stringify(db))
-      .then(data => res.json(data))
-      .catch(err => console.log(err))
-  });
+//   fs.writeFile('db/db.json', JSON.stringify(oldNotes), (err, data) => {
+//     res.json({msg: 'successfully'});
+//   });
+// });
+// });
+// router.get('api/notes/:id', (req, res) =>{
+//   res.json(notes[req.params.id]);
+// });
+
+
+
+// POST Route for a new  note
+// router.post('/notes', (req, res) => {
+//   let db = fs.readFileSync("db/db.json");
+//   db = JSON.parse(db);
+//   res.json(db);
+//     let newNote = { 
+//       title: req.body.title,
+//       text: req.body.text,
+//       id: uniqid() 
+//   };
+//     db.push (newNote);
+//     fs.writeFileSync("db/db.json", JSON.stringify(db));
+//     res.json(db);
+// });
+
+
 
 module.exports = router;
-
-
-// const saveNote = require('express').Router();
-// const { readFromFile, readAndAppend } = require('../helpers/fsHelpers');
-// const { v4: uuidv4 } = require('uuid');
-
-// // GET Route for retrieving all the tips
-// saveNote.get('/', (req, res) => {
-//   readFromFile('./db/application.json', "utf-8", (err, data) => res.json(JSON.parse(data)) )
-// });
-
-// // POST Route for a new UX/UI tip
-// saveNote.post('/', (req, res) => {
-//   const { title, text } = req.body;
-//   if (req.body) {
-//     const newTip = { title, text };
-//     readAndAppend(newTip, './db/application.json', res.json(`Note added successfully`));
-//   } else {
-//     res.error('Error in adding note');
-//   }
-// });
-
