@@ -35,8 +35,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ![Preview Image](./public/assets/images/Screenshot%202023-11-05%20at%202.30.02 PM.png)
 ![Preview Image](./public/assets/images/Screenshot%202023-11-05%20at%202.30.10 PM.png)
 
- **[Repo can be found HERE]
+ **[Repo can be found HERE](https://github.com/VernPG/express.js_note-taker.git)
 
- **{Note Taker can be founf HERE}
+ **[Note Taker can be found HERE](https://vernpg.github.io/express.js_note-taker/)
  
 
