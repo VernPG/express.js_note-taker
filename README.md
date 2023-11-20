@@ -40,6 +40,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
  **[Repo can be found HERE](https://github.com/VernPG/express.js_note-taker.git)
 
+ **[Heroku Deployment Link found HERE](https://express-note-taking-tool-a19d807db5dd.herokuapp.com/)
+
 
  
 
